@@ -13,7 +13,7 @@ const GlitchStore = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // --- IA STATE (LAB & CUSTOM) ---
-  const apiKey = ""; // A chave é injetada automaticamente
+  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; // A chave é injetada automaticamente
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
   
