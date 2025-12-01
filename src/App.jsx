@@ -3,7 +3,7 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351910000000"; // ⚠️ PÕE AQUI O TEU NÚMERO
+  const whatsappNumber = "351962606024"; // O teu número
   
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
@@ -62,11 +62,11 @@ const GlitchStore = () => {
     setCheckoutStep(3);
   };
 
-  // --- HELPER: GEMINI TEXT API ---
+  // --- HELPER: GEMINI TEXT API (MODELO 1.5 FLASH) ---
   const callGeminiText = async (prompt, systemInstruction) => {
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -77,12 +77,17 @@ const GlitchStore = () => {
           })
         }
       );
+      if (!response.ok) throw new Error('Erro API Texto');
       const data = await response.json();
       return JSON.parse(data.candidates?.[0]?.content?.parts?.[0]?.text);
-    } catch (e) { console.error(e); return null; }
+    } catch (e) { 
+        console.error(e); 
+        setStatusMsg("Erro de conexão com o Cérebro IA.");
+        return null; 
+    }
   };
 
-  // --- HELPER: IMAGEN API ---
+  // --- HELPER: IMAGEN API (MODELO 3.0) ---
   const callGeminiImage = async (prompt) => {
     try {
       const response = await fetch(
@@ -96,9 +101,14 @@ const GlitchStore = () => {
           })
         }
       );
+      if (!response.ok) throw new Error('Erro API Imagem');
       const data = await response.json();
       return `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
-    } catch (e) { console.error(e); return null; }
+    } catch (e) { 
+        console.error(e); 
+        setStatusMsg("Erro de conexão com o Pintor IA.");
+        return null; 
+    }
   };
 
   // --- LÓGICA IA ---
@@ -135,7 +145,7 @@ const GlitchStore = () => {
     setLoading(false);
   };
 
-  // --- CONFIGURAÇÃO DOS UNIVERSOS (FONTE BOLD APLICADA AO RETRO!) ---
+  // --- CONFIGURAÇÃO DOS UNIVERSOS ---
   const universes = {
     cyberpunk: {
       name: "CURRENT 2079",
@@ -171,7 +181,7 @@ const GlitchStore = () => {
       bgImage: "url('/vintage60swallpaper.png')", 
       overlay: null,
       text: "text-white",
-      // AQUI ESTÁ A MUDANÇA PARA BOLD (RIGHTEOUS)
+      // FONTE BOLD AQUI!
       font: "font-['Righteous'] tracking-wide", 
       accent: "text-yellow-300",
       border: "border-white",
@@ -244,7 +254,6 @@ const GlitchStore = () => {
         .font-display { font-family: 'Righteous', cursive; }
         
         ${currentUniverse === 'paper' ? "body { font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; }" : ''}
-        /* RETRO AGORA USA A FONTE BOLD TAMBÉM */
         ${currentUniverse === 'retro' ? ".font-display { font-family: 'Righteous', cursive; }" : ''}
         ${currentUniverse === 'console' ? ".font-display { font-family: 'Press Start 2P', cursive; }" : ''}
 
