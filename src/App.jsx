@@ -31,10 +31,10 @@ const GlitchStore = () => {
 
   // --- DADOS FICTÍCIOS ---
   const products = [
-    { id: 1, name: "Gato do Exorcista", price: 24, image: "🐱✝️" },
-    { id: 2, name: "Vader Florista", price: 30, image: "🌸💀" },
-    { id: 3, name: "Shrek Buda", price: 18, image: "🧘‍♂️🟢" },
-    { id: 4, name: "Pikachu Maromba", price: 35, image: "💪⚡" },
+    { id: 1, name: "Invocação do Miau", price: 0, image: "🐱✝️" },
+    { id: 2, name: "Vader Florista", price: 0, image: "🌸💀" },
+    { id: 3, name: "Shrek Buda", price: 0, image: "🧘‍♂️🟢" },
+    { id: 4, name: "Pikachu Maromba", price: 0, image: "💪⚡" },
   ];
 
   // --- MOCK DADOS CLIENTE ---
@@ -42,8 +42,8 @@ const GlitchStore = () => {
     name: "Viajante do Tempo",
     email: "cliente@glitch.pt",
     orders: [
-      { id: "#84920", date: "2023-10-15", status: "Entregue", total: "45.00€" },
-      { id: "#84102", date: "2023-09-01", status: "Em Trânsito", total: "24.00€" }
+      { id: "#84920", date: "2023-10-15", status: "Entregue", total: "0.00€" },
+      { id: "#84102", date: "2023-09-01", status: "Em Trânsito", total: ".00€" }
     ]
   };
 
@@ -164,7 +164,7 @@ const GlitchStore = () => {
       icon: <PenTool />
     },
     retro: {
-      name: "1960s_POP",
+      name: "1960s_Pop",
       bg: "bg-red-600 polka-dot",
       text: "text-white",
       font: "font-['Pacifico'] tracking-wide",
@@ -260,7 +260,7 @@ const GlitchStore = () => {
         <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center">
             <div className="text-center">
                 <Sparkles size={64} className="mx-auto text-cyan-400 animate-spin mb-4"/>
-                <h2 className="text-2xl font-mono text-white tracking-widest animate-pulse">VIAJANDO NO MULTIVERSO...</h2>
+                <h2 className="text-2xl font-mono text-white tracking-widest animate-pulse"> PROCURANDO NOVA DIMENSÃO NO MULTIVERSO...</h2>
             </div>
         </div>
       )}
@@ -292,7 +292,7 @@ const GlitchStore = () => {
           {/* CENTRO: MENU PRINCIPAL (NOVOS BOTÕES) */}
           <nav className="flex gap-4 md:gap-8 text-xs font-bold tracking-widest items-center overflow-x-auto w-full md:w-auto justify-center">
             {[
-              { id: 'home', label: language === 'PT' ? 'HOME PAGE' : 'HOME PAGE' },
+              { id: 'home', label: language === 'PT' ? 'INÍCIO' : 'HOME PAGE' },
               { id: 'lab', label: language === 'PT' ? 'LABS' : 'LABS' },
               { id: 'custom', label: language === 'PT' ? 'FORGE' : 'FORGE' },
               { id: 'cart', label: language === 'PT' ? 'CHECK OUT' : 'CHECK OUT' }
@@ -370,7 +370,7 @@ const GlitchStore = () => {
 
             <h3 className="text-xl font-display opacity-60 mb-6 flex items-center gap-2">
                 <Terminal size={20}/> 
-                {currentUniverse === 'retro' ? 'CATÁLOGO MENSAL' : (language === 'PT' ? 'VITRINE DE ERROS' : 'ERROR SHOWCASE')}
+                {currentUniverse === 'retro' ? 'CATÁLOGO' : (language === 'PT' ? 'CATÁLOGO' : 'SHOWCASE')}
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
