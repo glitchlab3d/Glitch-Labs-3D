@@ -3,10 +3,10 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351962606024"; 
+  const whatsappNumber = "351962606024"; // O teu número
   
-  // 
-  const apiKey = "AIzaSyAEHBYrPfdIxmigZrFHUwx5Gd0ghjcVVpE"; 
+  // ⚠️ ATENÇÃO: Confirma se a tua chave está aqui dentro das aspas!
+  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; 
 
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
@@ -14,6 +14,7 @@ const GlitchStore = () => {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState(1);
   const [language, setLanguage] = useState('PT');
+  
   const [addressData, setAddressData] = useState({ name: '', address: '', zip: '', city: 'Lisboa' });
 
   // --- MULTIVERSO STATE ---
@@ -23,15 +24,17 @@ const GlitchStore = () => {
   // --- IA STATE ---
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
+  
   const [item1, setItem1] = useState('');
   const [item2, setItem2] = useState('');
   const [fusionResult, setFusionResult] = useState(null);
   const [fusionImage, setFusionImage] = useState(null);
+
   const [customName, setCustomName] = useState('');
   const [customDesc, setCustomDesc] = useState('');
   const [customBlueprint, setCustomBlueprint] = useState(null);
 
-  // --- DADOS DA LOJA ---
+  // --- DADOS DA LOJA (ITENS NORMAIS) ---
   const products = [
     { id: 1, name: "Chaveiro Pixel Sword", price: 5.50, category: "Acessórios", image: "🗡️" },
     { id: 2, name: "Busto Batman (15cm)", price: 25.00, category: "Colecionáveis", image: "🦇" },
@@ -62,10 +65,11 @@ const GlitchStore = () => {
     setCheckoutStep(3);
   };
 
-  // --- API HELPERS (COM DIAGNÓSTICO DE ERRO) ---
+  // --- API HELPERS (CORRIGIDO PARA GEMINI PRO) ---
   const callGeminiText = async (prompt, systemInstruction) => {
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      // TROQUEI PARA GEMINI-PRO (MAIS ESTÁVEL)
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], systemInstruction: { parts: [{ text: systemInstruction }] }, generationConfig: { responseMimeType: "application/json" } })
@@ -79,11 +83,7 @@ const GlitchStore = () => {
       
       const data = await response.json();
       return JSON.parse(data.candidates?.[0]?.content?.parts?.[0]?.text);
-    } catch (e) { 
-        console.error(e); 
-        setStatusMsg("Erro IA (Texto). Ver alerta.");
-        return null; 
-    }
+    } catch (e) { console.error(e); setStatusMsg("Erro IA (Texto)."); return null; }
   };
 
   const callGeminiImage = async (prompt) => {
@@ -102,11 +102,7 @@ const GlitchStore = () => {
 
       const data = await response.json();
       return `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
-    } catch (e) { 
-        console.error(e); 
-        setStatusMsg("Erro IA (Imagem). Ver alerta.");
-        return null; 
-    }
+    } catch (e) { console.error(e); setStatusMsg("Erro IA (Imagem)."); return null; }
   };
 
   // --- HANDLERS ---
@@ -114,14 +110,10 @@ const GlitchStore = () => {
     if (!item1 || !item2) return;
     setLoading(true); setFusionResult(null); setFusionImage(null);
     setStatusMsg(language === 'PT' ? "A misturar DNA..." : "Mixing DNA...");
-    
-    // Passo 1: Texto
     const textData = await callGeminiText(`Mistura "${item1}" e "${item2}" num boneco Funko. JSON: { "nome": "PT", "descricao": "PT", "stats": "Poder/Caos", "img_prompt": "3d render vinyl toy ${item1} ${item2} cute white background studio" }`, "Criativo Loja");
-    
     if (textData) {
       setFusionResult(textData);
       setStatusMsg(language === 'PT' ? "Gerando visual..." : "Generating visuals...");
-      // Passo 2: Imagem
       const img = await callGeminiImage(textData.img_prompt);
       setFusionImage(img);
     }
@@ -187,7 +179,7 @@ const GlitchStore = () => {
       bgImage: "url('/pacman.jpg')", 
       overlay: null,
       text: "text-yellow-400",
-      font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
+      font: "font-['Press_Start_2P'] text-xs leading-loose",
       accent: "text-pink-500",
       border: "border-blue-700",
       button: "bg-blue-900 border-b-4 border-blue-600 text-yellow-300 hover:bg-blue-800 active:border-b-0 active:translate-y-1",
@@ -431,7 +423,7 @@ const GlitchStore = () => {
                     {cart.map((item) => (
                       <div key={item.id} className={`${theme.card} p-4 flex items-center gap-4 relative`}>
                         <div className={`w-16 h-16 flex items-center justify-center text-2xl ${currentUniverse === 'paper' ? 'border-2 border-black' : 'bg-black/30'}`}>{item.image}</div>
-                        <div className="flex-1"><h4 className="font-bold">{item.name}</h4><p className={`${theme.accent} text-sm`}>{item.price}€</p></div>
+                        <div className="flex-1"><h4 className="font-bold">{item.name}</h4><p className={`${theme.accent} text-sm`}>{item.price.toFixed(2)}€</p></div>
                         <div className={`flex items-center gap-3 p-1 ${currentUniverse === 'paper' ? 'border-2 border-black' : 'bg-black/20'}`}><button onClick={() => updateQty(item.id, -1)} className="p-1"><Minus size={14}/></button><span className="font-mono text-sm w-4 text-center">{item.qty}</span><button onClick={() => updateQty(item.id, 1)} className="p-1"><Plus size={14}/></button></div>
                         <button onClick={() => removeItem(item.id)} className="opacity-50 hover:opacity-100 ml-2"><Trash2 size={18}/></button>
                       </div>
