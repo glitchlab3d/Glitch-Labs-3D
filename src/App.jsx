@@ -3,7 +3,7 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351962606024"; //
+  const whatsappNumber = "351910000000"; // ⚠️ NÃO TE ESQUEÇAS DE POR O TEU NÚMERO AQUI
   
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
@@ -16,11 +16,11 @@ const GlitchStore = () => {
   const [addressData, setAddressData] = useState({ name: '', address: '', zip: '', city: 'Lisboa' });
 
   // --- MULTIVERSO STATE ---
-  const [currentUniverse, setCurrentUniverse] = useState('CURRENT 2079'); 
+  const [currentUniverse, setCurrentUniverse] = useState('cyberpunk'); 
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // --- IA STATE (LAB & CUSTOM) ---
-  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; // A tua chave (mantida)
+  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; // A tua chave correta
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
   
@@ -55,19 +55,10 @@ const GlitchStore = () => {
 
   // --- FUNÇÃO WHATSAPP (ENVIAR PEDIDO) ---
   const sendToWhatsApp = () => {
-    // 1. Criar texto dos produtos
     let orderText = cart.map(item => `- ${item.qty}x ${item.name} (${item.price}€)`).join('%0a');
-    
-    // 2. Calcular total
     const total = (cart.reduce((acc, item) => acc + (item.price * item.qty), 0) + 3.50).toFixed(2);
-
-    // 3. Montar mensagem
     const message = `Olá GLITCH LISBON! 👾%0aQuero encomendar:%0a%0a${orderText}%0a%0a📦 *Envio:* 3.50€%0a💰 *TOTAL:* ${total}€%0a%0a📍 *Dados de Envio:*%0aNome: ${addressData.name}%0aMorada: ${addressData.address}%0aCP: ${addressData.zip} ${addressData.city}%0a%0aAguardo dados para MB WAY!`;
-
-    // 4. Abrir WhatsApp
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-    
-    // 5. Avançar para sucesso
     setCheckoutStep(3);
   };
 
@@ -110,7 +101,7 @@ const GlitchStore = () => {
     } catch (e) { console.error(e); return null; }
   };
 
-  // --- LÓGICA: FUSÃO (LAB) ---
+  // --- LÓGICA IA ---
   const handleFusion = async () => {
     if (!item1 || !item2) return;
     setLoading(true); setFusionResult(null); setFusionImage(null);
@@ -126,7 +117,6 @@ const GlitchStore = () => {
       }
     `;
     const data = await callGeminiText(textPrompt, "Você é uma IA criativa de uma loja de impressões em 3D.");
-    
     if (data) {
       setFusionResult(data);
       setStatusMsg(language === 'PT' ? "A imprimir a imagem conceptual..." : "Printing concept image...");
@@ -136,34 +126,21 @@ const GlitchStore = () => {
     setLoading(false);
   };
 
-  // --- LÓGICA: CUSTOM (FORGE) ---
   const handleCustom = async () => {
     if (!customDesc) return;
     setLoading(true); setCustomBlueprint(null);
     setStatusMsg(language === 'PT' ? "A analisar perfil do alvo..." : "Analyzing target profile...");
-
-    const prompt = `
-      O usuário quer um boneco customizado.
-      Para: ${customName || "Alguém"}
-      Descrição: ${customDesc}
-      Crie um "Blueprint" (plano de projeto) engraçado.
-      JSON: {
-        "codename": "Nome de Código do Projeto",
-        "acessorios": "Lista de 3 acessórios sugeridos",
-        "obs": "Uma observação sarcástica sobre a personalidade descrita"
-      }
-    `;
-    const data = await callGeminiText(prompt, "Você é um engenheiro de bonecos impressos em 3D customizados.");
+    const data = await callGeminiText(`Boneco custom para: ${customName}. Desc: ${customDesc}. JSON: { "codename": "...", "acessorios": ["..."], "obs": "..." }`, "Engenheiro Toy");
     setCustomBlueprint(data);
     setLoading(false);
   };
 
-  // --- CONFIGURAÇÃO DOS UNIVERSOS (COM IMAGENS) ---
+  // --- CONFIGURAÇÃO DOS UNIVERSOS (ATUALIZADA) ---
   const universes = {
     cyberpunk: {
       name: "CURRENT 2079",
       bgClass: "bg-gray-950",
-      bgImage: "none", // Sem imagem, mantém o look clean escuro
+      bgImage: "none", 
       overlay: null,
       text: "text-gray-200",
       font: "font-mono",
@@ -177,7 +154,7 @@ const GlitchStore = () => {
     paper: {
       name: "COMIC BOOK",
       bgClass: "bg-white",
-      bgImage: "url('https://www.transparenttextures.com/patterns/notebook.png')", // Textura de papel
+      bgImage: "url('https://www.transparenttextures.com/patterns/notebook.png')",
       overlay: null,
       text: "text-black",
       font: "font-sans font-bold",
@@ -191,10 +168,10 @@ const GlitchStore = () => {
     retro: {
       name: "VINTAGE 60s",
       bgClass: "bg-red-600",
-      bgImage: "url('/vintage60swallpaper.png')", 
-      overlay: null, //
+      bgImage: "url('/vintage60swallpaper.png')", // A tua imagem
+      overlay: null, // Sem vermelho por cima!
       text: "text-white",
-      font: "font-sans font-bold",
+      font: "font-['Modern Prestige'] tracking-wide",
       accent: "text-yellow-300",
       border: "border-white",
       button: "bg-white text-red-600 rounded-full hover:bg-yellow-300 hover:text-red-700 shadow-lg border-2 border-white transform hover:scale-105 transition-transform",
@@ -205,8 +182,8 @@ const GlitchStore = () => {
     console: {
       name: "ARCADE 80s",
       bgClass: "bg-black",
-      bgImage: "url('/pacmanwallpaper.jpg')",
-      overlay: null, //
+      bgImage: "url('/pacman.jpg')", // Nome corrigido (sem espaços)
+      overlay: null, // Sem preto por cima!
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
       accent: "text-pink-500",
@@ -220,16 +197,12 @@ const GlitchStore = () => {
 
   const theme = universes[currentUniverse];
 
-  // --- MUDAR UNIVERSO ---
+  // --- SWITCH UNIVERSE ---
   const switchUniverse = () => {
     setIsTransitioning(true);
     const keys = Object.keys(universes);
-    const currentIndex = keys.indexOf(currentUniverse);
-    const nextIndex = (currentIndex + 1) % keys.length;
-    setTimeout(() => {
-      setCurrentUniverse(keys[nextIndex]);
-      setIsTransitioning(false);
-    }, 500); 
+    const next = keys[(keys.indexOf(currentUniverse) + 1) % keys.length];
+    setTimeout(() => { setCurrentUniverse(next); setIsTransitioning(false); }, 500);
   };
 
   // --- FUNÇÕES DO CARRINHO ---
@@ -249,7 +222,7 @@ const GlitchStore = () => {
   const cartTotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${theme.bgClass} ${theme.text} ${theme.font} selection:bg-pink-500 selection:text-white pb-20 overflow-x-hidden relative`}>
+    <div className={`min-h-screen transition-all duration-500 ${theme.bgClass} ${theme.text} ${theme.font} selection:bg-pink-500 selection:text-white pb-20 overflow-x-hidden relative`}>
       
       {/* BACKGROUND IMAGE COM OVERLAY */}
       <div 
