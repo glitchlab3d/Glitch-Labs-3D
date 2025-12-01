@@ -103,7 +103,7 @@ const GlitchStore = () => {
         "img_prompt": "A high quality 3d render of a vinyl toy figure combining ${item1} and ${item2}, studio lighting, solid background, cute, detailed, 4k"
       }
     `;
-    const data = await callGeminiText(textPrompt, "Você é uma IA criativa de uma loja cyberpunk.");
+    const data = await callGeminiText(textPrompt, "Você é uma IA criativa de uma loja de impressões em 3D.");
     
     if (data) {
       setFusionResult(data);
@@ -132,7 +132,7 @@ const GlitchStore = () => {
         "obs": "Uma observação sarcástica sobre a personalidade descrita"
       }
     `;
-    const data = await callGeminiText(prompt, "Você é um engenheiro de brinquedos cyberpunk.");
+    const data = await callGeminiText(prompt, "Você é um engenheiro de bonecos impressos em 3D customizados.");
     setCustomBlueprint(data);
     setLoading(false);
   };
@@ -140,7 +140,7 @@ const GlitchStore = () => {
   // --- CONFIGURAÇÃO DOS UNIVERSOS (THEMES) ---
   const universes = {
     cyberpunk: {
-      name: "CYBERPUNK",
+      name: "CURRENT 2079",
       bg: "bg-gray-950",
       text: "text-gray-200",
       font: "font-mono",
@@ -152,7 +152,7 @@ const GlitchStore = () => {
       icon: <Cpu />
     },
     paper: {
-      name: "PAPER",
+      name: "COMIC BOOK",
       bg: "bg-white",
       text: "text-black",
       font: "font-sans font-bold",
@@ -164,10 +164,10 @@ const GlitchStore = () => {
       icon: <PenTool />
     },
     retro: {
-      name: "1960s_Pop",
+      name: "VINTAGE 60s",
       bg: "bg-red-600 polka-dot",
       text: "text-white",
-      font: "font-['Pacifico'] tracking-wide",
+      font: "font-['True School'] tracking-wide",
       accent: "text-yellow-300",
       border: "border-white",
       button: "bg-white text-red-600 rounded-full hover:bg-yellow-300 hover:text-red-700 shadow-lg border-2 border-white transform hover:scale-105 transition-transform",
@@ -176,7 +176,7 @@ const GlitchStore = () => {
       icon: <Disc />
     },
     console: {
-      name: "ARCADE_80s",
+      name: "ARCADE 80s",
       bg: "bg-black",
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
