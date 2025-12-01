@@ -256,9 +256,9 @@ const GlitchStore = () => {
           <div className="flex items-center gap-2 md:gap-4">
               <div onClick={() => setActiveTab('home')} className="cursor-pointer group">
                 <h1 className={`text-xl md:text-3xl font-display tracking-wider ${currentUniverse === 'cyberpunk' ? 'glitch-gradient' : ''}`}>
-                    {currentUniverse === 'paper' ? 'GLITCH_HQ' : 
-                     currentUniverse === 'retro' ? 'Glitch & Co.' : 
-                     currentUniverse === 'console' ? 'GLITCH.EXE' : 'GLITCH_3D'}
+                    {currentUniverse === 'paper' ? 'GLITCH LISBON' : 
+                     currentUniverse === 'retro' ? 'GLITCH LISBON & CO.' : 
+                     currentUniverse === 'console' ? 'GLITCH LISBON.EXE' : 'GLITCH LISBON'}
                 </h1>
                 <p className={`text-[10px] md:text-xs tracking-[0.3em] group-hover:tracking-[0.5em] transition-all font-bold ${theme.accent}`}>
                   IMPRESSÕES DO CAOS
