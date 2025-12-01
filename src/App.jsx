@@ -3,7 +3,7 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351962606024"; // 
+  const whatsappNumber = "351962606024"; // O teu número já está aqui
   
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
@@ -20,7 +20,7 @@ const GlitchStore = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // --- IA STATE (LAB & CUSTOM) ---
-  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; // A tua chave correta
+  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; // A tua chave
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
   
@@ -62,7 +62,7 @@ const GlitchStore = () => {
     setCheckoutStep(3);
   };
 
-  // --- HELPER: GEMINI TEXT API ---
+  // --- HELPER: GEMINI TEXT API (CORRIGIDA) ---
   const callGeminiText = async (prompt, systemInstruction) => {
     try {
       const response = await fetch(
@@ -135,7 +135,7 @@ const GlitchStore = () => {
     setLoading(false);
   };
 
-  // --- CONFIGURAÇÃO DOS UNIVERSOS (ATUALIZADA) ---
+  // --- CONFIGURAÇÃO DOS UNIVERSOS ---
   const universes = {
     cyberpunk: {
       name: "CURRENT 2079",
@@ -168,8 +168,8 @@ const GlitchStore = () => {
     retro: {
       name: "VINTAGE 60s",
       bgClass: "bg-red-600",
-      bgImage: "url('/vintage60swallpaper.png')", // A tua imagem
-      overlay: null, // Sem vermelho por cima!
+      bgImage: "url('/vintage60swallpaper.png')", 
+      overlay: null,
       text: "text-white",
       font: "font-['Pacifico'] tracking-wide",
       accent: "text-yellow-300",
@@ -182,8 +182,8 @@ const GlitchStore = () => {
     console: {
       name: "ARCADE 80s",
       bgClass: "bg-black",
-      bgImage: "url('/pacman.jpg')", // Nome corrigido (sem espaços)
-      overlay: null, // Sem preto por cima!
+      bgImage: "url('/pacman.jpg')", 
+      overlay: null,
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
       accent: "text-pink-500",
@@ -261,11 +261,6 @@ const GlitchStore = () => {
         @keyframes slideDownFade {
             0% { opacity: 0; transform: translateY(-40px); }
             100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes warp {
-            0% { transform: scale(1) rotate(0deg); opacity: 1; filter: hue-rotate(0deg); }
-            50% { transform: scale(0.1) rotate(180deg); opacity: 0; filter: hue-rotate(180deg); }
-            100% { transform: scale(1) rotate(360deg); opacity: 1; filter: hue-rotate(0deg); }
         }
       `}</style>
 
