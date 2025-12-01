@@ -3,7 +3,7 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351962606024"; // O teu número já está aqui
+  const whatsappNumber = "351910000000"; // ⚠️ PÕE AQUI O TEU NÚMERO
   
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
@@ -62,7 +62,7 @@ const GlitchStore = () => {
     setCheckoutStep(3);
   };
 
-  // --- HELPER: GEMINI TEXT API (CORRIGIDA) ---
+  // --- HELPER: GEMINI TEXT API ---
   const callGeminiText = async (prompt, systemInstruction) => {
     try {
       const response = await fetch(
@@ -135,7 +135,7 @@ const GlitchStore = () => {
     setLoading(false);
   };
 
-  // --- CONFIGURAÇÃO DOS UNIVERSOS ---
+  // --- CONFIGURAÇÃO DOS UNIVERSOS (FONTE BOLD APLICADA AO RETRO!) ---
   const universes = {
     cyberpunk: {
       name: "CURRENT 2079",
@@ -171,7 +171,8 @@ const GlitchStore = () => {
       bgImage: "url('/vintage60swallpaper.png')", 
       overlay: null,
       text: "text-white",
-      font: "font-['Pacifico'] tracking-wide",
+      // AQUI ESTÁ A MUDANÇA PARA BOLD (RIGHTEOUS)
+      font: "font-['Righteous'] tracking-wide", 
       accent: "text-yellow-300",
       border: "border-white",
       button: "bg-white text-red-600 rounded-full hover:bg-yellow-300 hover:text-red-700 shadow-lg border-2 border-white transform hover:scale-105 transition-transform",
@@ -239,8 +240,12 @@ const GlitchStore = () => {
       )}
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Pacifico&family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-        ${currentUniverse === 'retro' ? ".font-display { font-family: 'Pacifico', cursive; }" : ''}
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        .font-display { font-family: 'Righteous', cursive; }
+        
+        ${currentUniverse === 'paper' ? "body { font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; }" : ''}
+        /* RETRO AGORA USA A FONTE BOLD TAMBÉM */
+        ${currentUniverse === 'retro' ? ".font-display { font-family: 'Righteous', cursive; }" : ''}
         ${currentUniverse === 'console' ? ".font-display { font-family: 'Press Start 2P', cursive; }" : ''}
 
         .glitch-gradient {
