@@ -3,7 +3,7 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351910000000"; // ⚠️ CONFIRMA SE O TEU NÚMERO ESTÁ AQUI
+  const whatsappNumber = "351910000000"; // ⚠️ CONFIRMA O TEU NÚMERO
   const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; // A tua chave
 
   // --- NAVEGAÇÃO & ESTADO ---
@@ -13,7 +13,6 @@ const GlitchStore = () => {
   const [checkoutStep, setCheckoutStep] = useState(1);
   const [language, setLanguage] = useState('PT');
   
-  // Checkout Data
   const [addressData, setAddressData] = useState({ name: '', address: '', zip: '', city: 'Lisboa' });
 
   // --- MULTIVERSO STATE ---
@@ -24,13 +23,11 @@ const GlitchStore = () => {
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
   
-  // Lab Fusão
   const [item1, setItem1] = useState('');
   const [item2, setItem2] = useState('');
   const [fusionResult, setFusionResult] = useState(null);
   const [fusionImage, setFusionImage] = useState(null);
 
-  // Custom Forge
   const [customName, setCustomName] = useState('');
   const [customDesc, setCustomDesc] = useState('');
   const [customBlueprint, setCustomBlueprint] = useState(null);
@@ -165,7 +162,7 @@ const GlitchStore = () => {
       bgImage: "url('/pacman.jpg')", 
       overlay: null,
       text: "text-yellow-400",
-      font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
+      font: "font-['Press_Start_2P'] text-xs leading-loose", // Ajustado tamanho
       accent: "text-pink-500",
       border: "border-blue-700",
       button: "bg-blue-900 border-b-4 border-blue-600 text-yellow-300 hover:bg-blue-800 active:border-b-0 active:translate-y-1",
@@ -221,7 +218,7 @@ const GlitchStore = () => {
       <div className="relative z-10">
         <header className={`sticky top-0 z-40 ${theme.header} p-4 shadow-lg`}>
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
+            <div className="flex items-center gap-4 w-full md:w-auto justify-start">
                 <div onClick={() => setActiveTab('home')} className="cursor-pointer group">
                   <h1 className={`text-xl md:text-3xl font-display tracking-wider ${currentUniverse === 'cyberpunk' ? 'glitch-gradient' : ''}`}>GLITCH LISBON</h1>
                   <p className={`text-[10px] md:text-xs tracking-[0.3em] font-bold ${theme.accent}`}>STORE & LABS</p>
@@ -260,8 +257,8 @@ const GlitchStore = () => {
             <div className="animate-in fade-in slide-in-from-bottom-4">
               <section className={`${theme.card} p-12 rounded-2xl text-center mb-12`}>
                 <div className={`mx-auto mb-4 w-16 h-16 ${theme.accent} flex items-center justify-center`}>{theme.icon}</div>
-                <h2 className="text-4xl md:text-5xl font-display mb-4">{language === 'PT' ? 'Impressão 3D & Design' : '3D Printing & Design'}</h2>
-                <p className="opacity-70 max-w-lg mx-auto mb-8">{language === 'PT' ? 'Chaveiros, Figuras e Decoração. Qualidade Premium em Lisboa.' : 'Keychains, Figures and Decor. Premium Quality in Lisbon.'}</p>
+                <h2 className="text-4xl md:text-5xl font-display mb-4">{language === 'PT' ? 'Dê vida à sua imaginação' : 'Bring your imagination to life'}</h2>
+                <p className="opacity-70 max-w-lg mx-auto mb-8">{language === 'PT' ? 'Produtos customizados únicos. Do digital para o real, com qualidade premium.' : 'Unique custom products. From digital to real, with premium quality.'}</p>
                 <button onClick={() => setActiveTab('lab')} className={`py-3 px-8 font-bold ${theme.button}`}>{language === 'PT' ? 'QUERO ALGO ÚNICO (IR PARA LABS)' : 'I WANT SOMETHING UNIQUE (GO TO LABS)'}</button>
               </section>
 
