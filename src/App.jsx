@@ -167,7 +167,7 @@ const GlitchStore = () => {
       name: "VINTAGE 60s",
       bg: "bg-red-600 polka-dot",
       text: "text-white",
-      font: "font-['True School'] tracking-wide",
+      font: "font-['Modern Prestige'] tracking-wide",
       accent: "text-yellow-300",
       border: "border-white",
       button: "bg-white text-red-600 rounded-full hover:bg-yellow-300 hover:text-red-700 shadow-lg border-2 border-white transform hover:scale-105 transition-transform",
