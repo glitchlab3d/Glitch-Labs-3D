@@ -3,7 +3,7 @@ import { ShoppingCart, Sparkles, Gift, Zap, X, Terminal, Cpu, Upload, Trash2, Pl
 
 const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
-  const whatsappNumber = "351910000000"; // ⚠️ NÃO TE ESQUEÇAS DE POR O TEU NÚMERO AQUI
+  const whatsappNumber = "351962606024"; // 
   
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
