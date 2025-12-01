@@ -192,7 +192,7 @@ const GlitchStore = () => {
       name: "VINTAGE 60s",
       bgClass: "bg-red-600",
       // Imagem estilo Pop Art / Retro Woman Ads
-      bgImage: "url('/vintage60swallpaper.jpg')", 
+      bgImage: "url('/vintage60swallpaper.png')", 
       overlay: "rgba(220, 38, 38, 0.9)", // Overlay vermelho forte para o texto ser legível
       text: "text-white",
       font: "font-['Modern Prestige'] tracking-wide",
@@ -207,7 +207,7 @@ const GlitchStore = () => {
       name: "ARCADE 80s",
       bgClass: "bg-black",
       // Imagem Pacman Pattern
-      bgImage: "url('https://i.pinimg.com/originals/09/b6/2d/09b62d29505df2230da423000dfb4207.gif')",
+      bgImage: "url ('/pacman wallpaper.jpg')",
       overlay: "rgba(0, 0, 0, 0.85)", // Overlay preto forte para não confundir a visão
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
