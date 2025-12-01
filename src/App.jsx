@@ -171,7 +171,7 @@ const GlitchStore = () => {
       bgImage: "url('/vintage60swallpaper.png')", // A tua imagem
       overlay: null, // Sem vermelho por cima!
       text: "text-white",
-      font: "font-['Modern Prestige'] tracking-wide",
+      font: "font-['Pacifico'] tracking-wide",
       accent: "text-yellow-300",
       border: "border-white",
       button: "bg-white text-red-600 rounded-full hover:bg-yellow-300 hover:text-red-700 shadow-lg border-2 border-white transform hover:scale-105 transition-transform",
@@ -239,10 +239,7 @@ const GlitchStore = () => {
       )}
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;1,900&family=VT323&family=Pacifico&family=Press+Start+2P&display=swap');
-        .font-display { font-family: 'Righteous', cursive; }
-        
-        ${currentUniverse === 'paper' ? "body { font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; }" : ''}
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Pacifico&family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
         ${currentUniverse === 'retro' ? ".font-display { font-family: 'Pacifico', cursive; }" : ''}
         ${currentUniverse === 'console' ? ".font-display { font-family: 'Press Start 2P', cursive; }" : ''}
 
@@ -257,8 +254,13 @@ const GlitchStore = () => {
         
         @keyframes gradient-shift { 0% { background-position: 0% 50% } 50% { background-position: 100% 50% } 100% { background-position: 0% 50% } }
         
+        /* Nova animação suave */
         .warp-effect {
-            animation: warp 0.5s ease-in-out;
+            animation: slideDownFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes slideDownFade {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         @keyframes warp {
             0% { transform: scale(1) rotate(0deg); opacity: 1; filter: hue-rotate(0deg); }
