@@ -192,7 +192,7 @@ const GlitchStore = () => {
       name: "VINTAGE 60s",
       bgClass: "bg-red-600",
       // Imagem estilo Pop Art / Retro Woman Ads
-      bgImage: "url('https://img.freepik.com/free-vector/pop-art-background-with-woman_23-2147515159.jpg')", 
+      bgImage: "url('/vintage60swallpaper.jpg')", 
       overlay: "rgba(220, 38, 38, 0.9)", // Overlay vermelho forte para o texto ser legível
       text: "text-white",
       font: "font-['Modern Prestige'] tracking-wide",
