@@ -16,7 +16,7 @@ const GlitchStore = () => {
   const [addressData, setAddressData] = useState({ name: '', address: '', zip: '', city: 'Lisboa' });
 
   // --- MULTIVERSO STATE ---
-  const [currentUniverse, setCurrentUniverse] = useState('cyberpunk'); 
+  const [currentUniverse, setCurrentUniverse] = useState('CURRENT 2079'); 
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // --- IA STATE (LAB & CUSTOM) ---
@@ -191,11 +191,10 @@ const GlitchStore = () => {
     retro: {
       name: "VINTAGE 60s",
       bgClass: "bg-red-600",
-      // Imagem estilo Pop Art / Retro Woman Ads
       bgImage: "url('/vintage60swallpaper.png')", 
-      overlay: "rgba(220, 38, 38, 0.9)", // Overlay vermelho forte para o texto ser legível
+      overlay: null, //
       text: "text-white",
-      font: "font-['Modern Prestige'] tracking-wide",
+      font: "font-sans font-bold",
       accent: "text-yellow-300",
       border: "border-white",
       button: "bg-white text-red-600 rounded-full hover:bg-yellow-300 hover:text-red-700 shadow-lg border-2 border-white transform hover:scale-105 transition-transform",
@@ -206,9 +205,8 @@ const GlitchStore = () => {
     console: {
       name: "ARCADE 80s",
       bgClass: "bg-black",
-      // Imagem Pacman Pattern
-      bgImage: "url ('/pacman wallpaper.jpg')",
-      overlay: "rgba(0, 0, 0, 0.85)", // Overlay preto forte para não confundir a visão
+      bgImage: "url('/pacman wallpaper.jpg')",
+      overlay: null, //
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
       accent: "text-pink-500",
