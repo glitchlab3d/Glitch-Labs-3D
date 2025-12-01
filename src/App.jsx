@@ -205,7 +205,7 @@ const GlitchStore = () => {
     console: {
       name: "ARCADE 80s",
       bgClass: "bg-black",
-      bgImage: "url('/pacman wallpaper.jpg')",
+      bgImage: "url('/pacmanwallpaper.jpg')",
       overlay: null, //
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
