@@ -133,7 +133,7 @@ const GlitchStore = () => {
     cyberpunk: {
       name: "UNIVERSE 2079",
       bgClass: "bg-gray-950",
-      bgImage: "none", 
+      bgImage: "url('/marvelwallpapercolored.png')", 
       overlay: null,
       text: "text-gray-200",
       font: "font-mono",
@@ -147,7 +147,7 @@ const GlitchStore = () => {
     paper: {
       name: "COMIC BOOK UNIVERSE",
       bgClass: "bg-white",
-      bgImage: "url('https://www.transparenttextures.com/patterns/notebook.png')",
+      bgImage: "url('/marvelwallpaper.png')",
       overlay: null,
       text: "text-black",
       font: "font-sans font-bold",
