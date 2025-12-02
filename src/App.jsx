@@ -5,8 +5,8 @@ const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
   const whatsappNumber = "351962606024"; // O teu número
   
-  //
-  const apiKey = "AIzaSyCxxnKq3GHqcieZi0cdozkqfTxxwPfWs6c"; 
+  // ⚠️ ATENÇÃO: Confirma se a tua chave está aqui dentro das aspas!
+  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; 
 
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
@@ -68,7 +68,6 @@ const GlitchStore = () => {
   // --- API HELPERS (CORRIGIDO PARA GEMINI PRO) ---
   const callGeminiText = async (prompt, systemInstruction) => {
     try {
-      // TROQUEI PARA GEMINI-PRO (MAIS ESTÁVEL)
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -132,7 +131,7 @@ const GlitchStore = () => {
   // --- UNIVERSOS ---
   const universes = {
     cyberpunk: {
-      name: "CURRENT 2079",
+      name: "UNIVERSE 2079",
       bgClass: "bg-gray-950",
       bgImage: "none", 
       overlay: null,
@@ -146,7 +145,7 @@ const GlitchStore = () => {
       icon: <Cpu />
     },
     paper: {
-      name: "COMIC BOOK",
+      name: "COMIC BOOK UNIVERSE",
       bgClass: "bg-white",
       bgImage: "url('https://www.transparenttextures.com/patterns/notebook.png')",
       overlay: null,
@@ -160,7 +159,7 @@ const GlitchStore = () => {
       icon: <PenTool />
     },
     retro: {
-      name: "VINTAGE 60s",
+      name: "VINTAGE 60s UNIVERSE",
       bgClass: "bg-red-600",
       bgImage: "url('/vintage60swallpaper.png')", 
       overlay: null,
@@ -174,12 +173,12 @@ const GlitchStore = () => {
       icon: <Disc />
     },
     console: {
-      name: "ARCADE 80s",
+      name: "ARCADE UNIVERSE",
       bgClass: "bg-black",
       bgImage: "url('/pacman.jpg')", 
       overlay: null,
       text: "text-yellow-400",
-      font: "font-['Press_Start_2P'] text-xs leading-loose",
+      font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
       accent: "text-pink-500",
       border: "border-blue-700",
       button: "bg-blue-900 border-b-4 border-blue-600 text-yellow-300 hover:bg-blue-800 active:border-b-0 active:translate-y-1",
@@ -237,7 +236,8 @@ const GlitchStore = () => {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-4 w-full md:w-auto justify-start">
                 <div onClick={() => setActiveTab('home')} className="cursor-pointer group">
-                  <h1 className={`text-xl md:text-3xl font-display tracking-wider ${currentUniverse === 'cyberpunk' ? 'glitch-gradient' : ''}`}>GLITCH LISBON</h1>
+                  {/* AQUI ESTÁ A ALTERAÇÃO: glitch-gradient EM TODOS OS UNIVERSOS */}
+                  <h1 className="text-xl md:text-3xl font-display tracking-wider glitch-gradient">GLITCH LISBON</h1>
                   <p className={`text-[10px] md:text-xs tracking-[0.3em] font-bold ${theme.accent}`}>STORE & LABS</p>
                 </div>
                 <button onClick={switchUniverse} className={`flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase rounded-full ${currentUniverse === 'paper' ? 'bg-black text-white' : 'bg-pink-600 text-white'}`}>
