@@ -215,7 +215,7 @@ const GlitchStore = () => {
         .font-display { font-family: 'Righteous', cursive; }
         ${currentUniverse === 'paper' ? "body { font-family: 'Comic Sans MS', sans-serif; }" : ''}
         ${currentUniverse === 'retro' ? ".font-display { font-family: 'Righteous', cursive; }" : ''}
-        ${currentUniverse === 'console' ? ".font-display { font-family: 'Press Start 2P', cursive; }" : ''}
+        ${currentUniverse === 'console' ? ".font-display { font-family: 'Press Start 2P', cursive; font-size: 16px !important; letter-spacing: -1px; }" : ''}
         .glitch-gradient {
           background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4, #ec4899);
           background-size: 300% 100%;
