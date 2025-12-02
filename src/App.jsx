@@ -138,10 +138,10 @@ const GlitchStore = () => {
       text: "text-gray-200",
       font: "font-mono",
       accent: "text-cyan-400",
-      border: "border-gray-800",
+      border: "border-white-800",
       button: "bg-cyan-600 hover:bg-cyan-500 text-black skew-x-[-10deg]",
-      header: "bg-gray-900/90 border-b border-gray-800 backdrop-blur-md",
-      card: "bg-gray-900/80 border border-gray-800 hover:border-cyan-500 backdrop-blur",
+      header: "bg-white-900/90 border-b border-white-800 backdrop-blur-md",
+      card: "bg-white-900/80 border border-white-800 hover:border-cyan-500 backdrop-blur",
       icon: <Cpu />
     },
     paper: {
