@@ -132,7 +132,7 @@ const GlitchStore = () => {
   const universes = {
     cyberpunk: {
       name: "UNIVERSE 2079",
-      bgClass: "bg-gray-950",
+      bgClass: "bg-gray",
       bgImage: "url('/marvelwallpapercolored.png')", 
       overlay: null,
       text: "text-gray-200",
