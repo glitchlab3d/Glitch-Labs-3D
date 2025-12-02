@@ -216,8 +216,19 @@ const GlitchStore = () => {
         ${currentUniverse === 'paper' ? "body { font-family: 'Comic Sans MS', sans-serif; }" : ''}
         ${currentUniverse === 'retro' ? ".font-display { font-family: 'Righteous', cursive; }" : ''}
         ${currentUniverse === 'console' ? ".font-display { font-family: 'Press Start 2P', cursive; }" : ''}
-        .glitch-gradient { background: linear-gradient(270deg, #ec4899, #8b5cf6, #06b6d4); -webkit-background-clip: text; color: transparent; animation: gradient-shift 5s ease infinite; }
-        @keyframes gradient-shift { 0% { background-position: 0% 50% } 50% { background-position: 100% 50% } 100% { background-position: 0% 50% } }
+        .glitch-gradient {
+          background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4, #ec4899);
+          background-size: 300% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: colorFlow 3s linear infinite;
+        }
+        
+        @keyframes colorFlow { 
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
+        } gradient-shift { 0% { background-position: 0% 50% } 50% { background-position: 100% 50% } 100% { background-position: 0% 50% } }
         .warp-effect { animation: slideDownFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
         @keyframes slideDownFade { 0% { opacity: 0; transform: translateY(-40px); } 100% { opacity: 1; transform: translateY(0); } }
       `}</style>
