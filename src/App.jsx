@@ -5,7 +5,7 @@ const GlitchStore = () => {
   // --- CONFIGURAÇÕES ---
   const whatsappNumber = "351962606024"; // O teu número
   
-  // ⚠️ ATENÇÃO: Confirma se a tua chave está aqui dentro das aspas!
+  // 
   const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; 
 
   // --- NAVEGAÇÃO & ESTADO ---
