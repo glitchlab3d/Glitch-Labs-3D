@@ -161,7 +161,7 @@ const GlitchStore = () => {
     retro: {
       name: "VINTAGE 60s UNIVERSE",
       bgClass: "bg-red-600",
-      bgImage: "url('/vintage60swallpaper.png')", 
+      bgImage: "url('/wandavision.png')", 
       overlay: null,
       text: "text-white",
       font: "font-['Righteous'] tracking-wide", 
