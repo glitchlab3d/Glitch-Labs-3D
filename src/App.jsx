@@ -175,7 +175,7 @@ const GlitchStore = () => {
     console: {
       name: "ARCADE UNIVERSE",
       bgClass: "bg-black",
-      bgImage: "url('/pacman.jpg')", 
+      bgImage: "url('/pacmanwallpaper.jpg')", 
       overlay: null,
       text: "text-yellow-400",
       font: "font-['Press_Start_2P'] leading-relaxed text-[10px] md:text-xs",
