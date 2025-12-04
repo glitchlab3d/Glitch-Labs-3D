@@ -207,7 +207,7 @@ const GlitchStore = () => {
 
   return (
     <div className={`min-h-screen transition-all duration-500 ${theme.bgClass} ${theme.text} ${theme.font} selection:bg-pink-500 selection:text-white pb-20 overflow-x-hidden relative`}>
-      <div className="fixed inset-0 z-0 pointer-events-none transition-all duration-500" style={{ backgroundImage: theme.bgImage, backgroundSize: currentUniverse === 'paper' ? 'auto' : 'cover', backgroundPosition: 'center', backgroundRepeat: currentUniverse === 'paper' ? 'repeat' : 'no-repeat' }} />
+      <div className="fixed inset-0 z-0 pointer-events-none transition-all duration-500" style={{ backgroundImage: theme.bgImage, backgroundSize: currentUniverse === 'paper' ? 'auto' : 'contain', backgroundPosition: 'center', backgroundRepeat: currentUniverse === 'paper' ? 'repeat' : 'no-repeat' }} />
       {theme.overlay && <div className="fixed inset-0 z-0 pointer-events-none transition-all duration-500" style={{ backgroundColor: theme.overlay }} />}
 
       <style>{`
