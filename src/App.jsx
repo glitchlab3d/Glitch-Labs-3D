@@ -6,7 +6,7 @@ const GlitchStore = () => {
   const whatsappNumber = "351962606024"; // O teu número
   
   // 
-  const apiKey = "AIzaSyAVDgV6NQOnr9klMBV4fTjvS2RoKRkEET8"; 
+  const apiKey = "AIzaSyD9KnQsjX2xu7DFWdyV0GZHTny_mVsjx_I"; 
 
   // --- NAVEGAÇÃO & ESTADO ---
   const [activeTab, setActiveTab] = useState('home'); 
